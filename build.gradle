@@ -1,0 +1,23 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+repositories {
+    mavenLocal();
+    mavenCentral()
+    mavenRepo url: "https://code.lds.org/nexus/content/groups/main-repo";
+    mavenRepo url: "http://download.java.net/maven/2", artifactUrls: ["http://maven.springframework.org/milestone", "https://repository.jboss.org/nexus/content/groups/public/", "http://mvnrepository.com/artifact"]
+}
+
+sourceCompatibility = '1.6'
+
+dependencies {
+    def guavaVersion = '13.0.1'
+    compile "com.google.guava:guava:$guavaVersion"
+
+    def guiceVersion="3.0"
+    compile "com.google.inject:guice:$guiceVersion"
+
+    compile 'javax:javaee-api:7.0'
+}
+
+//        GRADLE_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005'
