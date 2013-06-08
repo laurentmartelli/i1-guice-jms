@@ -1,4 +1,4 @@
-package se.marcus.guice.jms;
+package com.thoughtworks.i1.jms;
 
 import com.google.inject.Inject;
 

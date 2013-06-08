@@ -1,4 +1,4 @@
-package se.marcus.guice.jms;
+package com.thoughtworks.i1.jms;
 
 import javax.jms.JMSException;
 import javax.jms.Message;
