@@ -31,7 +31,7 @@ public class GuiceJmsTemplateImpl implements GuiceJmsTemplate {
         return consumer.receive();
     }
 
-    public void close() throws JMSException {
+    public void close() throws Exception {
         connection.close();
         session.close();
     }
