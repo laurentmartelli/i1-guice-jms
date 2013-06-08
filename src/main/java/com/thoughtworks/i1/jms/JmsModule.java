@@ -8,16 +8,16 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 /**
- * JmsService creates a module for installation in guice
+ * JmsModule creates a module for installation in guice
  * @author krummas@gmail.com
  *
  */
-public class JmsService extends AbstractModule {
+public class JmsModule extends AbstractModule {
     private final Destination destination;
     private final Session session;
     private final Connection connection;
 
-    private JmsService(Session session, Destination destination, Connection connection) {
+    private JmsModule(Session session, Destination destination, Connection connection) {
         this.destination=destination;
         this.session=session;
         this.connection=connection;
@@ -37,7 +37,7 @@ public class JmsService extends AbstractModule {
         private ConnectionFactory connectionFactory;
         private boolean usingJNDI=false;
 
-        public JmsService buildModule() {
+        public JmsModule buildModule() {
             try {
                 Session session;
                 Destination destination;
@@ -61,7 +61,7 @@ public class JmsService extends AbstractModule {
                     connection.start();
                 }
 
-                return new JmsService(session,destination,connection);
+                return new JmsModule(session,destination,connection);
             }
             catch(JMSException e) {
                 throw new RuntimeException("Could not connect to destination",e);

@@ -25,6 +25,7 @@ public class GuiceJmsTemplateImpl implements GuiceJmsTemplate {
         Message message = messageCreator.createMessage(session);
         session.createProducer(destination).send(message);
     }
+
     public Message receive() throws JMSException {
         MessageConsumer consumer = session.createConsumer(destination);
         connection.start();
